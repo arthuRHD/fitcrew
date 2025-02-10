@@ -34,7 +34,7 @@ jobs:
       - name: Configure Firebase
         run: |
           export FIREBASE_TOKEN='${{ secrets.FIREBASE_TOKEN }}'
-          echo '${{ secrets.FIREBASE_OPTIONS }}' > lib/firebase_options.dart
+          echo "${{ secrets.FIREBASE_OPTIONS }}" > lib/firebase_options.dart
           flutterfire configure \
             --project=fitcrew-3e16c \
             --platforms=web \
