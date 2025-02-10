@@ -32,7 +32,8 @@ if ! command -v genhtml &> /dev/null; then
   exit 1
 fi
 
-genhtml coverage/lcov.info -o coverage/html
+lcov --remove coverage/lcov.info 'lib/firebase_options.dart' -o coverage/new_lcov.info
+genhtml coverage/new_lcov.info -o coverage/html
 
 # Generate badge
 COVERAGE=$(lcov --summary coverage/lcov.info | grep "lines" | cut -d ' ' -f 4 | cut -d '%' -f 1)
