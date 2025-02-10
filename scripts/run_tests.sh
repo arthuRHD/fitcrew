@@ -36,7 +36,7 @@ lcov --remove coverage/lcov.info 'lib/firebase_options.dart' -o coverage/new_lco
 genhtml coverage/new_lcov.info -o coverage/html
 
 # Generate badge
-COVERAGE=$(lcov --summary coverage/lcov.info | grep "lines" | cut -d ' ' -f 4 | cut -d '%' -f 1)
+COVERAGE=$(lcov --summary coverage/new_lcov.info | grep "lines" | cut -d ' ' -f 4 | cut -d '%' -f 1)
 echo "<div class='coverage-badge' style='float: right'>Coverage: ${COVERAGE}%</div>" > coverage/html/badge.html
 
 echo "Coverage report generated at coverage/html/index.html" 
