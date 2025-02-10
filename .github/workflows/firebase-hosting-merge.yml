@@ -36,7 +36,7 @@ jobs:
           export FIREBASE_TOKEN='${{ secrets.FIREBASE_TOKEN }}'
           flutterfire configure \
             --project=fitcrew-3e16c \
-            --platforms=web \
+            --platforms=web,android,ios \
             --yes
 
       - name: Run tests
