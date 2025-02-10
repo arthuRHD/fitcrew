@@ -25,9 +25,6 @@ jobs:
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
-      - name: Firebase CI Login
-        run: firebase login --no-localhost --token '${{ secrets.FIREBASE_TOKEN }}'
-
       - name: Install dependencies
         run: flutter pub get
 
@@ -36,6 +33,7 @@ jobs:
 
       - name: Configure Firebase
         run: |
+          export FIREBASE_TOKEN='${{ secrets.FIREBASE_TOKEN }}'
           echo '${{ secrets.FIREBASE_OPTIONS }}' > lib/firebase_options.dart
           flutterfire configure \
             --project=fitcrew-3e16c \
