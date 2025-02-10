@@ -1,0 +1,60 @@
+name: Deploy to Firebase Hosting on PR
+on: pull_request
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.3'
+          channel: 'stable'
+          cache: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Firebase CI Login
+        run: firebase login:ci --no-localhost --token '${{ secrets.FIREBASE_TOKEN }}'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Install FlutterFire CLI
+        run: dart pub global activate flutterfire_cli
+
+      - name: Configure Firebase
+        run: |
+          echo '${{ secrets.FIREBASE_OPTIONS }}' > lib/firebase_options.dart
+          flutterfire configure \
+            --project=fitcrew-3e16c \
+            --platforms=web \
+            --yes
+
+      - name: Run tests
+        run: ./scripts/run_tests.sh
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report-pr
+          path: coverage/html/
+          retention-days: 7
+
+      - name: Build web
+        run: flutter build web
+
+      - name: Deploy preview to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FITCREW }}'
+          projectId: fitcrew-3e16c 

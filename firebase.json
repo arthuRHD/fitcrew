@@ -1,0 +1,17 @@
+{"flutter":{"platforms":{"dart":{"lib/firebase_options.dart":{"projectId":"fitcrew-3e16c","configurations":{"android":"1:501384084480:android:cbf3c4099b9fa1efacece5","ios":"1:501384084480:ios:df67301d079fa856acece5","web":"1:501384084480:web:6a095a275462e091acece5"}}}}}}
+{
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
