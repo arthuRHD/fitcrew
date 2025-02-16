@@ -1,4 +1,3 @@
-```markdown:README.md
 <div align="center">
   <img src="assets/eps/Color logo - no background.eps" alt="FitCrew Logo" width="200"/>
   <h1>FitCrew</h1>
