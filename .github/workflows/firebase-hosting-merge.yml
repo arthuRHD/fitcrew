@@ -26,7 +26,7 @@ jobs:
         uses: hrishikesh-kadam/setup-lcov@v1
 
       - name: Install Firebase CLI
-        run: npm install -g firebase-tools
+        run: npm install -g firebase-tools@13.30.0 # This fixes flutterfire_cli
 
       - name: Install dependencies
         run: flutter pub get
