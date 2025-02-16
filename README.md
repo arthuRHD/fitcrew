@@ -1,16 +1,140 @@
-# fitcrew
+```markdown:README.md
+<div align="center">
+  <img src="assets/eps/Color logo - no background.eps" alt="FitCrew Logo" width="200"/>
+  <h1>FitCrew</h1>
+</div>
 
-A new Flutter project.
+[![Build & Deploy](https://github.com/arthur-rcd/fitcrew/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/arthur-rcd/fitcrew/actions/workflows/firebase-hosting-merge.yml)
+[![Coverage](https://arthur-rcd.github.io/fitcrew/badge.html)](https://arthur-rcd.github.io/fitcrew/coverage)
+[![Flutter Version](https://img.shields.io/badge/flutter-3.27.4-blue.svg)](https://flutter.dev/docs/get-started/install)
+[![Style: Very Good Analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
-## Getting Started
+A fitness tracking application built with Flutter and Firebase.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔐 Secure authentication with Firebase Auth
+  - Email/Password login
+  - Google Sign-In integration
+  - Persistent sessions
+- 👤 User profile management
+- 📱 Cross-platform support
+  - Web deployment with Firebase Hosting
+  - Android & iOS support (coming soon)
+- 🎨 Modern Material Design 3
+- 🧪 Comprehensive test coverage
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Tech Stack
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Frontend
+- **Flutter 3.27.4** - UI framework
+- **Riverpod** - State management
+- **GoRouter** - Navigation
+- **Font Awesome** - Icons
+- **Very Good Analysis** - Lint rules
+
+### Backend & Services
+- **Firebase Auth** - Authentication
+- **Firebase Hosting** - Web deployment
+- **GitHub Actions** - CI/CD
+- **GitHub Pages** - Coverage reports
+
+## Development Setup
+
+### Prerequisites
+
+- Flutter 3.27.4
+- Firebase CLI
+- Node.js 20.x
+- LCOV (for coverage reports)
+
+### Local Development
+
+1. Clone and install dependencies:
+```bash
+git clone https://github.com/arthur-rcd/fitcrew.git
+cd fitcrew
+flutter pub get
+```
+
+2. Configure Firebase:
+```bash
+dart pub global activate flutterfire_cli
+flutterfire configure
+```
+
+3. Run tests:
+```bash
+# Web tests
+./scripts/run_tests.sh chrome
+
+# View coverage report
+open coverage/html/index.html
+```
+
+4. Run the app:
+```bash
+# Web
+flutter run -d chrome
+
+# Android
+flutter run -d android
+
+# iOS
+flutter run -d ios
+```
+
+## CI/CD Pipeline
+
+### Pull Requests
+- Runs tests
+- Generates coverage report
+- Creates preview deployment
+- Uploads coverage artifacts
+
+### Main Branch
+- Runs tests
+- Updates coverage report on GitHub Pages
+- Deploys to Firebase Hosting production
+
+## Project Structure
+
+```
+lib/
+├── main.dart
+├── providers/          # Riverpod providers
+├── router/            # GoRouter configuration
+├── screens/           # UI screens
+│   ├── auth/         # Authentication screens
+│   ├── home/         # Main app screens
+│   └── profile/      # User profile
+├── theme/            # App theming
+└── widgets/          # Reusable components
+
+test/                 # Test files matching lib/ structure
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Ensure tests pass (`./scripts/run_tests.sh chrome`)
+4. Commit your changes (`git commit -m 'Add some amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```
+
+This README now includes:
+1. Detailed tech stack information
+2. CI/CD pipeline explanation
+3. Project structure overview
+4. More specific development instructions
+
+Would you like me to:
+1. Add environment setup details?
+2. Include troubleshooting guides?
+3. Add more code examples?
