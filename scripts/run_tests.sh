@@ -42,6 +42,6 @@ genhtml coverage/new_lcov.info -o coverage/html
 
 # Generate badge
 COVERAGE=$(lcov --summary coverage/new_lcov.info | grep "lines" | cut -d ' ' -f 4 | cut -d '%' -f 1)
-echo "<div class='coverage-badge' style='float: right'>Coverage: ${COVERAGE}%</div>" > coverage/html/badge.html
+echo "{\"coverage\": \"${COVERAGE}%\"}" > coverage/html/badge.json
 
 echo "Coverage report generated at coverage/html/index.html" 
