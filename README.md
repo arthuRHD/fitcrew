@@ -3,7 +3,7 @@
 </div>
 
 [![Build & Deploy](https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml)
-[![Coverage](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Farthurhd.github.io%2Ffitcrew%2Fcoverage%2Fbadge.json&query=.coverage)](https://arthurhd.github.io/fitcrew/coverage/)
+[![Coverage](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Farthurhd.github.io%2Ffitcrew%2Fcoverage%2Fbadge.json&query=%24.coverage&label=Coverage)](https://arthurhd.github.io/fitcrew/coverage/)
 [![Flutter Version](https://img.shields.io/badge/flutter-3.27.4-blue.svg)](https://flutter.dev/docs/get-started/install)
 [![Style: Very Good Analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
