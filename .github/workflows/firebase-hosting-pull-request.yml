@@ -20,7 +20,7 @@ jobs:
           node-version: '20'
 
       - name: Install Firebase CLI
-        run: npm install -g firebase-tools
+        run: npm install -g firebase-tools@13.30.0 # This fixes flutterfire_cli
 
       - name: Firebase CI Login
         run: firebase login:ci --no-localhost --token '${{ secrets.FIREBASE_TOKEN }}'
