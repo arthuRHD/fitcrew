@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fitcrew/theme/colors.dart';
 import 'firebase_options.dart';
 import 'package:fitcrew/router/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Remove debug banner
   WidgetsApp.debugAllowBannerOverride = false;
   
   await Firebase.initializeApp(
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'FitCrew',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.darkGreen),
         useMaterial3: true,
       ),
       routerConfig: router,
