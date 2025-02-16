@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">2</td>
-            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">13</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-02-10 23:50:43</td>
+            <td class="headerValue">2025-02-16 21:17:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -61,19 +61,40 @@
 <pre class="sourceHeading">            Line data    Source code</pre>
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : import 'package:flutter/material.dart';</span>
-<span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span>              : class HomeScreen extends StatelessWidget {</span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC tlaBgGNC">           1 :   const HomeScreen({super.key});</span></span>
-<span id="L5"><span class="lineNum">       5</span>              : </span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">           1 :   @override</span></span>
-<span id="L7"><span class="lineNum">       7</span>              :   Widget build(BuildContext context) {</span>
-<span id="L8"><span class="lineNum">       8</span>              :     return const Scaffold(</span>
-<span id="L9"><span class="lineNum">       9</span>              :       body: Center(</span>
-<span id="L10"><span class="lineNum">      10</span>              :         child: Text('Home Screen'),</span>
-<span id="L11"><span class="lineNum">      11</span>              :       ),</span>
-<span id="L12"><span class="lineNum">      12</span>              :     );</span>
-<span id="L13"><span class="lineNum">      13</span>              :   }</span>
-<span id="L14"><span class="lineNum">      14</span>              : } </span>
+<span id="L2"><span class="lineNum">       2</span>              : import 'package:flutter_riverpod/flutter_riverpod.dart';</span>
+<span id="L3"><span class="lineNum">       3</span>              : import 'package:go_router/go_router.dart';</span>
+<span id="L4"><span class="lineNum">       4</span>              : import 'package:font_awesome_flutter/font_awesome_flutter.dart';</span>
+<span id="L5"><span class="lineNum">       5</span>              : import '../../providers/auth_provider.dart';</span>
+<span id="L6"><span class="lineNum">       6</span>              : </span>
+<span id="L7"><span class="lineNum">       7</span>              : class HomeScreen extends ConsumerWidget {</span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC tlaBgGNC">           7 :   const HomeScreen({super.key});</span></span>
+<span id="L9"><span class="lineNum">       9</span>              : </span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           2 :   @override</span></span>
+<span id="L11"><span class="lineNum">      11</span>              :   Widget build(BuildContext context, WidgetRef ref) {</span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           6 :     final user = ref.watch(authStateProvider).valueOrNull;</span></span>
+<span id="L13"><span class="lineNum">      13</span>              : </span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           2 :     return Scaffold(</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           2 :       appBar: AppBar(</span></span>
+<span id="L16"><span class="lineNum">      16</span>              :         title: const Text('Home'),</span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           2 :         actions: [</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           2 :           IconButton(</span></span>
+<span id="L19"><span class="lineNum">      19</span>              :             icon: const FaIcon(FontAwesomeIcons.user),</span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           2 :             onPressed: () =&gt; context.go('/profile'),</span></span>
+<span id="L21"><span class="lineNum">      21</span>              :           ),</span>
+<span id="L22"><span class="lineNum">      22</span>              :         ],</span>
+<span id="L23"><span class="lineNum">      23</span>              :       ),</span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :       body: Center(</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           2 :         child: Column(</span></span>
+<span id="L26"><span class="lineNum">      26</span>              :           mainAxisAlignment: MainAxisAlignment.center,</span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           2 :           children: [</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           6 :             Text('Welcome ${user?.displayName ?? 'User'}!'),</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           6 :             Text('Email: ${user?.email ?? 'No email'}'),</span></span>
+<span id="L30"><span class="lineNum">      30</span>              :           ],</span>
+<span id="L31"><span class="lineNum">      31</span>              :         ),</span>
+<span id="L32"><span class="lineNum">      32</span>              :       ),</span>
+<span id="L33"><span class="lineNum">      33</span>              :     );</span>
+<span id="L34"><span class="lineNum">      34</span>              :   }</span>
+<span id="L35"><span class="lineNum">      35</span>              : } </span>
         </pre>
               </td>
             </tr>
