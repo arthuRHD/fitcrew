@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -z "$1" ]; then
+    echo "Usage: $0 [flutter device id]"
+    exit 1
+fi
+
 # Exit on error
 set -e
 
@@ -20,8 +25,8 @@ echo "Running build_runner..."
 flutter pub run build_runner build --delete-conflicting-outputs
 
 # Run tests
-echo "Running web tests..."
-flutter test -d chrome --coverage
+echo "Running tests on $1..."
+flutter test -d "$1" --coverage
 
 # Generate coverage report
 echo "Generating coverage report..."

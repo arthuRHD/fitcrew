@@ -1,38 +1,64 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fitcrew/router/router.dart';
-import 'package:fitcrew/screens/auth/login_screen.dart';
-import 'package:fitcrew/screens/home/home_screen.dart';
-import 'package:fitcrew/screens/profile/profile_screen.dart';
+import 'package:fitcrew/providers/auth_provider.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
+@GenerateNiceMocks([MockSpec<User>(), MockSpec<FirebaseAuth>()])
+import 'router_test.mocks.dart';
 
 void main() {
-  testWidgets('Router initializes at login screen', (tester) async {
-    await tester.pumpWidget(
-      MaterialApp.router(routerConfig: router),
-    );
-    
-    expect(find.byType(LoginScreen), findsOneWidget);
+  late MockUser mockUser;
+  late MockFirebaseAuth mockAuth;
+
+  setUp(() {
+    mockUser = MockUser();
+    mockAuth = MockFirebaseAuth();
+    when(mockUser.email).thenReturn('test@example.com');
+    when(mockUser.displayName).thenReturn('Test User');
   });
 
-  testWidgets('Can navigate to home screen', (tester) async {
+  testWidgets('Redirects to login when not authenticated', (tester) async {
+    when(mockAuth.authStateChanges())
+        .thenAnswer((_) => Stream.value(null));
+
     await tester.pumpWidget(
-      MaterialApp.router(routerConfig: router),
+      ProviderScope(
+        overrides: [
+          authProvider.overrideWithValue(mockAuth),
+        ],
+        child: Consumer(
+          builder: (context, ref, _) => MaterialApp.router(
+            routerConfig: ref.watch(routerProvider),
+          ),
+        ),
+      ),
     );
 
-    router.go('/home');
-    await tester.pumpAndSettle();
-    
-    expect(find.byType(HomeScreen), findsOneWidget);
+    expect(find.text('Se connecter'), findsOneWidget);
   });
 
-  testWidgets('Can navigate to profile screen', (tester) async {
+  testWidgets('Redirects to home when authenticated', (tester) async {
+    when(mockAuth.authStateChanges())
+        .thenAnswer((_) => Stream.value(mockUser));
+
     await tester.pumpWidget(
-      MaterialApp.router(routerConfig: router),
+      ProviderScope(
+        overrides: [
+          authProvider.overrideWithValue(mockAuth),
+        ],
+        child: Consumer(
+          builder: (context, ref, _) => MaterialApp.router(
+            routerConfig: ref.watch(routerProvider),
+          ),
+        ),
+      ),
     );
 
-    router.go('/profile');
     await tester.pumpAndSettle();
-    
-    expect(find.byType(ProfileScreen), findsOneWidget);
+    expect(find.text('Welcome Test User!'), findsOneWidget);
   });
 } 
