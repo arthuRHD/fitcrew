@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/png/Color%20logo%20-%20no%20background.png" alt="FitCrew Logo" width="500"/>
+  <img src="assets/png/color_with_background.png" alt="FitCrew Logo" width="500"/>
 </div>
 
 [![Build & Deploy](https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml)
@@ -34,6 +34,8 @@ A fitness tracking application built with Flutter and Firebase.
 ### Backend & Services
 - **Firebase Auth** - Authentication
 - **Firebase Hosting** - Web deployment
+
+### Tools
 - **GitHub Actions** - CI/CD
 - **GitHub Pages** - Coverage reports
 

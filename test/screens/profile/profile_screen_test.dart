@@ -28,7 +28,13 @@ void main() {
     
     when(mockUser.email).thenReturn('test@example.com');
     when(mockUser.displayName).thenReturn('Test User');
+    when(mockUser.photoURL).thenReturn(null);
     when(mockAuth.authStateChanges()).thenAnswer((_) => Stream.value(mockUser));
+
+    // Mock network images in tests
+    TestWidgetsFlutterBinding.ensureInitialized();
+    const NetworkImage('https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp')
+      .evict();
   });
 
   Widget createWidgetUnderTest() {
@@ -50,6 +56,7 @@ void main() {
 
     expect(find.text('Test User'), findsOneWidget);
     expect(find.text('test@example.com'), findsOneWidget);
+    expect(find.text('No phone number'), findsOneWidget);
   });
 
   testWidgets('ProfileScreen shows logout button', (tester) async {
@@ -91,6 +98,8 @@ void main() {
 
   testWidgets('Shows user avatar icon', (tester) async {
     await tester.pumpWidget(createWidgetUnderTest());
+    // Wait for the image to fail loading and show the fallback icon
+    await tester.pumpAndSettle();
     
     final icon = find.byWidgetPredicate((widget) => 
       widget is FaIcon && widget.icon == FontAwesomeIcons.circleUser

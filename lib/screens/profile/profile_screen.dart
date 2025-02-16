@@ -11,6 +11,7 @@ class ProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authStateProvider).valueOrNull;
+    final blankPhotoUrl = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp';
 
     return Scaffold(
       appBar: AppBar(
@@ -33,10 +34,16 @@ class ProfileScreen extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const FaIcon(
-              FontAwesomeIcons.circleUser,
-              size: 100,
-              color: AppColors.darkGreen,
+            Image.network(
+              user?.photoURL ?? blankPhotoUrl,
+              width: 100,
+              errorBuilder: (context, error, stackTrace) {
+                return const FaIcon(
+                  FontAwesomeIcons.circleUser,
+                  size: 100,
+                  color: AppColors.darkGreen,
+                );
+              },
             ),
             const SizedBox(height: 24),
             Text(
@@ -47,6 +54,11 @@ class ProfileScreen extends ConsumerWidget {
             Text(
               user?.email ?? 'No email',
               style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              user?.phoneNumber ?? 'No phone number',
+              style: Theme.of(context).textTheme.bodyLarge, 
             ),
           ],
         ),

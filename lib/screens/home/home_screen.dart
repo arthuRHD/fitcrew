@@ -10,6 +10,7 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authStateProvider).valueOrNull;
+    final size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
@@ -25,8 +26,8 @@ class HomeScreen extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/png/black_no_background.png', width: size.width * 0.8),
             Text('Welcome ${user?.displayName ?? 'User'}!'),
-            Text('Email: ${user?.email ?? 'No email'}'),
           ],
         ),
       ),
