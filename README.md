@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="assets/eps/Color logo - no background.eps" alt="FitCrew Logo" width="200"/>
+  <img src="assets/png/Color%20logo%20-%20no%20background.png" alt="FitCrew Logo" width="200"/>
   <h1>FitCrew</h1>
 </div>
 
-[![Build & Deploy](https://github.com/arthur-rcd/fitcrew/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/arthur-rcd/fitcrew/actions/workflows/firebase-hosting-merge.yml)
-[![Coverage](https://arthur-rcd.github.io/fitcrew/badge.html)](https://arthur-rcd.github.io/fitcrew/coverage)
+[![Build & Deploy](https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml)
+[![Coverage](https://arthurhd.github.io/fitcrew/coverage/html/badge.html)](https://arthurhd.github.io/fitcrew/coverage/)
 [![Flutter Version](https://img.shields.io/badge/flutter-3.27.4-blue.svg)](https://flutter.dev/docs/get-started/install)
 [![Style: Very Good Analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
