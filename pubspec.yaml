@@ -16,6 +16,7 @@ dependencies:
   google_sign_in: ^6.2.1
   health: ^12.0.1
   permission_handler: ^11.3.0
+  flutter_launcher_icons: ^0.14.3
 
 dev_dependencies:
   flutter_test:
@@ -25,6 +26,15 @@ dev_dependencies:
   json_serializable: ^6.7.1
   freezed: ^2.4.7
   flutter_lints: ^3.0.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/favicons/Browser.png"
+  image_path_android: "assets/favicons/Android.png"
+  image_path_ios: "assets/favicons/iPhone.png"
+  adaptive_icon_background: "#7405fb"
+  adaptive_icon_foreground: "assets/favicons/Android.png"
 
 flutter:
   assets:

@@ -15,6 +15,7 @@ class HealthScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final healthData = ref.watch(healthDataProvider);
+    final dailySteps = ref.watch(dailyStepsProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -67,26 +68,20 @@ class HealthScreen extends ConsumerWidget {
             _HealthCard(
               icon: FontAwesomeIcons.personWalking,
               title: 'Steps',
-              value: _findLatestValue(data, HealthDataType.STEPS),
+              value: dailySteps.value!,
               unit: 'steps',
+            ),
+            _HealthCard(
+              icon: FontAwesomeIcons.weightScale,
+              title: 'Weight',
+              value: _findLatestValue(data, HealthDataType.WEIGHT),
+              unit: 'kg',
             ),
             _HealthCard(
               icon: FontAwesomeIcons.heart,
               title: 'Heart Rate',
               value: _findLatestValue(data, HealthDataType.HEART_RATE),
               unit: 'bpm',
-            ),
-            _HealthCard(
-              icon: FontAwesomeIcons.route,
-              title: 'Distance',
-              value: _findLatestValue(data, HealthDataType.DISTANCE_WALKING_RUNNING),
-              unit: 'km',
-            ),
-            _HealthCard(
-              icon: FontAwesomeIcons.fire,
-              title: 'Calories',
-              value: _findLatestValue(data, HealthDataType.ACTIVE_ENERGY_BURNED),
-              unit: 'kcal',
             ),
           ],
         ),
@@ -95,12 +90,14 @@ class HealthScreen extends ConsumerWidget {
   }
 
   double _findLatestValue(List<HealthDataPoint> data, HealthDataType type) {
-    if (kDebugMode) {
-      print(data);
-    }
     final points = data.where((p) => p.type == type);
     if (points.isEmpty) return 0;
-    return double.tryParse(points.last.value.toString()) ?? 0;
+    return switch (points.last.value.runtimeType) {
+      NumericHealthValue => (points.last.value as NumericHealthValue).numericValue.toDouble(),
+      ElectrocardiogramHealthValue =>(points.last.value as ElectrocardiogramHealthValue).averageHeartRate!.toDouble(),
+      ElectrocardiogramVoltageValue =>(points.last.value as ElectrocardiogramVoltageValue).voltage!.toDouble(),
+      _ => 0,
+    };
   }
 }
 
