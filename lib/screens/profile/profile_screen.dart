@@ -11,7 +11,7 @@ class ProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authStateProvider).valueOrNull;
-    final blankPhotoUrl = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp';
+    const blankPhotoUrl = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp';
 
     return Scaffold(
       appBar: AppBar(

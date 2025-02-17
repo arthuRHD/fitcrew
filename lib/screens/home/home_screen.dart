@@ -31,6 +31,10 @@ class HomeScreen extends ConsumerWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => context.go('/health'),
+        child: const FaIcon(FontAwesomeIcons.heartPulse),
+      ),
     );
   }
 } 
