@@ -51,14 +51,14 @@ class HealthService {
     final midnight = DateTime(now.year, now.month, now.day);
     int? steps = await healthStore.getTotalStepsInInterval(midnight, now);
     if (steps != null) {
-      return steps!.toDouble(); 
+      return steps.toDouble(); 
     }
     return 0;
   }
 
   Future<List<HealthDataPoint>> fetchTodayData() async {
     final now = DateTime.now();
-    final fromThePast = DateTime(now.year - 1, now.month, now.day);
+    final fromThePast = DateTime(now.year, now.month, now.day);
 
     return await healthStore.getHealthDataFromTypes(
         types: types,

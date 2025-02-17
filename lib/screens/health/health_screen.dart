@@ -1,6 +1,3 @@
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -27,7 +24,10 @@ class HealthScreen extends ConsumerWidget {
         actions: [
           IconButton(
             icon: const FaIcon(FontAwesomeIcons.rotate),
-            onPressed: () => unawaited(ref.refresh(healthDataProvider.future)),
+            onPressed: () {
+              ref.invalidate(healthDataProvider);
+              ref.invalidate(dailyStepsProvider);
+            },
           ),
         ],
       ),
@@ -54,7 +54,8 @@ class HealthScreen extends ConsumerWidget {
                       .read(healthServiceProvider)
                       .requestPermissions();
                   if (granted) {
-                    unawaited(ref.refresh(healthDataProvider.future));
+                    ref.invalidate(healthDataProvider);
+                    ref.invalidate(dailyStepsProvider);
                   }
                 },
                 child: const Text('Grant Access'),
@@ -95,7 +96,7 @@ class HealthScreen extends ConsumerWidget {
     return switch (points.last.value.runtimeType) {
       NumericHealthValue => (points.last.value as NumericHealthValue).numericValue.toDouble(),
       ElectrocardiogramHealthValue =>(points.last.value as ElectrocardiogramHealthValue).averageHeartRate!.toDouble(),
-      ElectrocardiogramVoltageValue =>(points.last.value as ElectrocardiogramVoltageValue).voltage!.toDouble(),
+      ElectrocardiogramVoltageValue =>(points.last.value as ElectrocardiogramVoltageValue).voltage.toDouble(),
       _ => 0,
     };
   }
