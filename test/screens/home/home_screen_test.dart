@@ -52,4 +52,25 @@ void main() {
 
     verify(mockRouter.go('/profile')).called(1);
   });
+
+  testWidgets('Shows create crew button', (tester) async {
+    await tester.pumpWidget(createWidgetUnderTest());
+    
+    expect(find.text('Create Crew'), findsOneWidget);
+    expect(
+      find.byWidgetPredicate((widget) => 
+        widget is FaIcon && widget.icon == FontAwesomeIcons.plus
+      ),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('Can navigate to create crew', (tester) async {
+    await tester.pumpWidget(createWidgetUnderTest());
+    
+    await tester.tap(find.text('Create Crew'));
+    await tester.pumpAndSettle();
+
+    verify(mockRouter.go('/crews/create')).called(1);
+  });
 } 

@@ -28,6 +28,12 @@ class HomeScreen extends ConsumerWidget {
           children: [
             Image.asset('assets/png/black_no_background.png', width: size.width * 0.8),
             Text('Welcome ${user?.displayName ?? 'User'}!'),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: () => context.go('/crews/create'),
+              icon: const FaIcon(FontAwesomeIcons.plus),
+              label: const Text('Create Crew'),
+            ),
           ],
         ),
       ),

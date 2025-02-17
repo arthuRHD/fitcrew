@@ -36,6 +36,8 @@ migrate_working_dir/
 
 **/*.mocks.dart
 **/*.mocks.dart.part
+**/*.g.dart
+**/*.freezed.dart
 
 # Symbolication related
 app.*.symbols

@@ -5,6 +5,7 @@ import '../screens/auth/login_screen.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/profile/profile_screen.dart';
 import '../screens/health/health_screen.dart';
+import '../screens/crews/create_crew_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authStateProvider);
@@ -41,6 +42,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/health',
         builder: (context, state) => const HealthScreen(),
+      ),
+      GoRoute(
+        path: '/crews/create',
+        builder: (context, state) => const CreateCrewScreen(),
       ),
     ],
   );
