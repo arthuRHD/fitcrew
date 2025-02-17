@@ -31,13 +31,13 @@
             <td class="headerValue">new_lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntryLo">70.4&nbsp;%</td>
             <td class="headerCovTableEntry">27</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">19</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-02-17 15:36:18</td>
+            <td class="headerValue">2025-02-17 16:56:45</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -70,21 +70,21 @@
 <span id="L8"><span class="lineNum">       8</span>              :   return health;</span>
 <span id="L9"><span class="lineNum">       9</span>              : });</span>
 <span id="L10"><span class="lineNum">      10</span>              : </span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaUNC">           0 : final healthServiceProvider = Provider&lt;HealthService&gt;((ref) {</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaUNC">           0 :   final service = HealthService(healthStore: ref.watch(healthStoreProvider));</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC tlaBgGNC">           3 : final healthServiceProvider = Provider&lt;HealthService&gt;((ref) {</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaUNC tlaBgUNC">           0 :   final service = HealthService(healthStore: ref.watch(healthStoreProvider));</span></span>
 <span id="L13"><span class="lineNum">      13</span> <span class="tlaUNC">           0 :   unawaited(service.configure());</span></span>
 <span id="L14"><span class="lineNum">      14</span> <span class="tlaUNC">           0 :   unawaited(service.requestPermissions());</span></span>
 <span id="L15"><span class="lineNum">      15</span>              :   return service;</span>
 <span id="L16"><span class="lineNum">      16</span>              : });</span>
 <span id="L17"><span class="lineNum">      17</span>              : </span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaUNC">           0 : final healthDataProvider = FutureProvider&lt;List&lt;HealthDataPoint&gt;&gt;((ref) async {</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaUNC">           0 :   final healthService = ref.watch(healthServiceProvider);</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaUNC">           0 :   return await healthService.fetchTodayData();</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">           4 : final healthDataProvider = FutureProvider&lt;List&lt;HealthDataPoint&gt;&gt;((ref) async {</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           2 :   final healthService = ref.watch(healthServiceProvider);</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :   return await healthService.fetchTodayData();</span></span>
 <span id="L21"><span class="lineNum">      21</span>              : });</span>
 <span id="L22"><span class="lineNum">      22</span>              : </span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaUNC">           0 : final dailyStepsProvider = FutureProvider&lt;double&gt;((ref) async {</span></span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC">           0 :   final healthService = ref.watch(healthServiceProvider);</span></span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :   return await healthService.getDailySteps();</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           4 : final dailyStepsProvider = FutureProvider&lt;double&gt;((ref) async {</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :   final healthService = ref.watch(healthServiceProvider);</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           1 :   return await healthService.getDailySteps();</span></span>
 <span id="L26"><span class="lineNum">      26</span>              : });</span>
 <span id="L27"><span class="lineNum">      27</span>              : </span>
 <span id="L28"><span class="lineNum">      28</span>              : class HealthService {</span>
@@ -95,34 +95,34 @@
 <span id="L33"><span class="lineNum">      33</span>              :     HealthDataType.WEIGHT,</span>
 <span id="L34"><span class="lineNum">      34</span>              :   ];</span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC">           0 :   HealthService({required this.healthStore});</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           1 :   HealthService({required this.healthStore});</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :   Future&lt;void&gt; configure() async {</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC">           0 :     return await healthStore.configure();</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           1 :   Future&lt;void&gt; configure() async {</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           2 :     return await healthStore.configure();</span></span>
 <span id="L40"><span class="lineNum">      40</span>              :   }</span>
 <span id="L41"><span class="lineNum">      41</span>              : </span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC">           0 :   Future&lt;bool&gt; requestPermissions() async {</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC tlaBgUNC">           0 :   Future&lt;bool&gt; requestPermissions() async {</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC">           0 :     if (await Permission.activityRecognition.request().isGranted) {</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC">           0 :       return await healthStore.requestAuthorization(types);</span></span>
 <span id="L45"><span class="lineNum">      45</span>              :     }</span>
 <span id="L46"><span class="lineNum">      46</span>              :     return false;</span>
 <span id="L47"><span class="lineNum">      47</span>              :   }</span>
 <span id="L48"><span class="lineNum">      48</span>              : </span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC">           0 :   Future&lt;double&gt; getDailySteps() async {</span></span>
-<span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :     final now = DateTime.now();</span></span>
-<span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC">           0 :     final midnight = DateTime(now.year, now.month, now.day);</span></span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :     int? steps = await healthStore.getTotalStepsInInterval(midnight, now);</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC tlaBgGNC">           1 :   Future&lt;double&gt; getDailySteps() async {</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           1 :     final now = DateTime.now();</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           4 :     final midnight = DateTime(now.year, now.month, now.day);</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           2 :     int? steps = await healthStore.getTotalStepsInInterval(midnight, now);</span></span>
 <span id="L53"><span class="lineNum">      53</span>              :     if (steps != null) {</span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaUNC">           0 :       return steps!.toDouble(); </span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           1 :       return steps.toDouble(); </span></span>
 <span id="L55"><span class="lineNum">      55</span>              :     }</span>
 <span id="L56"><span class="lineNum">      56</span>              :     return 0;</span>
 <span id="L57"><span class="lineNum">      57</span>              :   }</span>
 <span id="L58"><span class="lineNum">      58</span>              : </span>
-<span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC">           0 :   Future&lt;List&lt;HealthDataPoint&gt;&gt; fetchTodayData() async {</span></span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :     final now = DateTime.now();</span></span>
-<span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC">           0 :     final fromThePast = DateTime(now.year - 1, now.month, now.day);</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">           1 :   Future&lt;List&lt;HealthDataPoint&gt;&gt; fetchTodayData() async {</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">           1 :     final now = DateTime.now();</span></span>
+<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC">           4 :     final fromThePast = DateTime(now.year, now.month, now.day);</span></span>
 <span id="L62"><span class="lineNum">      62</span>              : </span>
-<span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC">           0 :     return await healthStore.getHealthDataFromTypes(</span></span>
+<span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">           2 :     return await healthStore.getHealthDataFromTypes(</span></span>
 <span id="L64"><span class="lineNum">      64</span>              :         types: types,</span>
 <span id="L65"><span class="lineNum">      65</span>              :         startTime: fromThePast,</span>
 <span id="L66"><span class="lineNum">      66</span>              :         endTime: now,</span>
