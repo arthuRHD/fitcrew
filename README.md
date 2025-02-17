@@ -1,13 +1,22 @@
-<div align="center">
-  <img src="assets/png/color_with_background.png" alt="FitCrew Logo" width="500"/>
+<div id="header" align="center">
+  <img src="assets/png/color_with_background.png"/><br><br>
+    <p><strong><em>A fitness tracking application built with Flutter and Firebase.</em></strong></p>
+    <a href="https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml">
+      <img src="https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml/badge.svg" alt="Build & Deploy">
+   </a>
+   <a href="https://arthurhd.github.io/fitcrew/coverage/">
+      <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Farthurhd.github.io%2Ffitcrew%2Fcoverage%2Fbadge.json&query=%24.coverage&label=Coverage" alt="Coverage">
+  </a>
+  <a href="https://flutter.dev/docs/get-started/install">
+     <img src="https://img.shields.io/badge/flutter-3.27.4-blue.svg" alt="Flutter version">
+  </a>
+  <a href="https://pub.dev/packages/very_good_analysis">
+    <img src="https://img.shields.io/badge/style-very_good_analysis-B22C89.svg" alt="Style">
+  </a>
 </div>
+<br>
 
-[![Build & Deploy](https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/arthurhd/fitcrew/actions/workflows/firebase-hosting-merge.yml)
-[![Coverage](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Farthurhd.github.io%2Ffitcrew%2Fcoverage%2Fbadge.json&query=%24.coverage&label=Coverage)](https://arthurhd.github.io/fitcrew/coverage/)
-[![Flutter Version](https://img.shields.io/badge/flutter-3.27.4-blue.svg)](https://flutter.dev/docs/get-started/install)
-[![Style: Very Good Analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
-A fitness tracking application built with Flutter and Firebase.
 
 ## Features
 
