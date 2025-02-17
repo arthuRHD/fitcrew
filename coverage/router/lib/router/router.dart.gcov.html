@@ -31,13 +31,13 @@
             <td class="headerValue">new_lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryHi">92.3&nbsp;%</td>
+            <td class="headerCovTableEntryMed">86.7&nbsp;%</td>
+            <td class="headerCovTableEntry">15</td>
             <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntry">12</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-02-16 23:17:58</td>
+            <td class="headerValue">2025-02-17 00:38:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -60,13 +60,13 @@
               <td>
 <pre class="sourceHeading">            Line data    Source code</pre>
 <pre class="source">
-<span id="L1"><span class="lineNum">       1</span>              : import 'package:flutter/material.dart';</span>
-<span id="L2"><span class="lineNum">       2</span>              : import 'package:flutter_riverpod/flutter_riverpod.dart';</span>
-<span id="L3"><span class="lineNum">       3</span>              : import 'package:go_router/go_router.dart';</span>
-<span id="L4"><span class="lineNum">       4</span>              : import '../providers/auth_provider.dart';</span>
-<span id="L5"><span class="lineNum">       5</span>              : import '../screens/auth/login_screen.dart';</span>
-<span id="L6"><span class="lineNum">       6</span>              : import '../screens/home/home_screen.dart';</span>
-<span id="L7"><span class="lineNum">       7</span>              : import '../screens/profile/profile_screen.dart';</span>
+<span id="L1"><span class="lineNum">       1</span>              : import 'package:flutter_riverpod/flutter_riverpod.dart';</span>
+<span id="L2"><span class="lineNum">       2</span>              : import 'package:go_router/go_router.dart';</span>
+<span id="L3"><span class="lineNum">       3</span>              : import '../providers/auth_provider.dart';</span>
+<span id="L4"><span class="lineNum">       4</span>              : import '../screens/auth/login_screen.dart';</span>
+<span id="L5"><span class="lineNum">       5</span>              : import '../screens/home/home_screen.dart';</span>
+<span id="L6"><span class="lineNum">       6</span>              : import '../screens/profile/profile_screen.dart';</span>
+<span id="L7"><span class="lineNum">       7</span>              : import '../screens/health/health_screen.dart';</span>
 <span id="L8"><span class="lineNum">       8</span>              : </span>
 <span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC tlaBgGNC">           4 : final routerProvider = Provider&lt;GoRouter&gt;((ref) {</span></span>
 <span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           2 :   final authState = ref.watch(authStateProvider);</span></span>
@@ -100,9 +100,13 @@
 <span id="L38"><span class="lineNum">      38</span>              :         path: '/profile',</span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC tlaBgUNC">           0 :         builder: (context, state) =&gt; const ProfileScreen(),</span></span>
 <span id="L40"><span class="lineNum">      40</span>              :       ),</span>
-<span id="L41"><span class="lineNum">      41</span>              :     ],</span>
-<span id="L42"><span class="lineNum">      42</span>              :   );</span>
-<span id="L43"><span class="lineNum">      43</span>              : }); </span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">           1 :       GoRoute(</span></span>
+<span id="L42"><span class="lineNum">      42</span>              :         path: '/health',</span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :         builder: (context, state) =&gt; const HealthScreen(),</span></span>
+<span id="L44"><span class="lineNum">      44</span>              :       ),</span>
+<span id="L45"><span class="lineNum">      45</span>              :     ],</span>
+<span id="L46"><span class="lineNum">      46</span>              :   );</span>
+<span id="L47"><span class="lineNum">      47</span>              : }); </span>
         </pre>
               </td>
             </tr>
